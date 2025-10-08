@@ -18,72 +18,72 @@ export function HeroSection() {
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         <div className="flex justify-center mb-8 animate-slide-up">
           <div className="inline-flex items-center bg-white rounded-full p-4 shadow-lg">
-            <Image src="/logo.png" alt="DocPrep Logo" width={48} height={48} className="h-12 w-auto" />
+            <Image src="/logo.png" alt="DocPrep Logo" width={48} height={48} className="h-10 w-auto" />
           </div>
         </div>
 
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
           {/* Left Content */}
-          <div className="space-y-8">
-            <div className="space-y-6 animate-slide-up-large animate-delay-100">
-              <h1 className="font-sans text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl text-balance">
-                Ace NEET PG with India's Most Comprehensive Question Bank
+          <div className="space-y-6 sm:space-y-8">
+            <div className="space-y-4 sm:space-y-6 animate-slide-up-large animate-delay-100">
+              <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white text-balance">
+                Ace NEET PG with India&apos;s Most Comprehensive Question Bank
               </h1>
-              <p className="text-lg text-white/90 leading-relaxed sm:text-xl text-pretty">
-                Unlock your dream medical specialization with <span className="font-bold">DocPrep's</span> unmatched
+              <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed text-pretty">
+                Unlock your dream medical specialization with <span className="font-bold">DocPrep&apos;s</span> unmatched
                 question bank! Master 10,000+ high-yield questions with expert explanations and concise notes.
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-3 animate-slide-up animate-delay-200">
+            <div className="flex flex-wrap gap-2 sm:gap-3 animate-slide-up animate-delay-200">
               {["MBBS Curriculum", "FMGE", "NEET PG", "NEET SS", "PG Residency"].map((category) => (
                 <button
                   key={category}
-                  className="rounded-full border-2 border-white/40 bg-white/5 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm hover:bg-white/15 transition-colors"
+                  className="rounded-full border-2 border-white/40 bg-white/5 px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-medium text-white backdrop-blur-sm hover:bg-white/15 transition-colors"
                 >
                   {category}
                 </button>
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-4 animate-slide-up animate-delay-300">
-              <Button size="lg" className="bg-white text-[#3D3D8F] hover:bg-white/90 font-semibold shadow-lg">
-                <ExternalLink className="mr-2 h-5 w-5" />
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 animate-slide-up animate-delay-300">
+              <Button size="lg" className="bg-white text-[#3D3D8F] hover:bg-white/90 font-semibold shadow-lg text-sm sm:text-base w-full sm:w-auto">
+                <ExternalLink className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Practice Questions Now
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white/30 bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm font-semibold"
+                className="border-2 border-white/30 bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm font-semibold text-sm sm:text-base w-full sm:w-auto"
               >
-                <Sparkles className="mr-2 h-5 w-5" />
+                <Sparkles className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Start Free Trial
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white/30 bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm font-semibold"
+                className="border-2 border-white/30 bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm font-semibold text-sm sm:text-base w-full sm:w-auto"
               >
-                <PlayCircle className="mr-2 h-5 w-5" />
+                <PlayCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 View Demo
               </Button>
             </div>
 
-            <div className="grid grid-cols-3 gap-4 pt-8">
-              <div className="rounded-xl bg-white/10 backdrop-blur-md border border-white/20 p-4 text-center shadow-lg animate-slide-up animate-delay-400">
-                <div className="text-2xl font-bold text-white sm:text-3xl">10K+</div>
-                <div className="text-sm text-white/80 sm:text-base">Questions</div>
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-6 sm:pt-8">
+              <div className="rounded-lg sm:rounded-xl bg-white/10 backdrop-blur-md border border-white/20 p-3 sm:p-4 text-center shadow-lg animate-slide-up animate-delay-400">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white">10K+</div>
+                <div className="text-xs sm:text-sm md:text-base text-white/80">Questions</div>
               </div>
-              <div className="rounded-xl bg-white/10 backdrop-blur-md border border-white/20 p-4 text-center shadow-lg animate-slide-up animate-delay-500">
-                <div className="flex items-center justify-center gap-1 text-2xl font-bold text-white sm:text-3xl">
+              <div className="rounded-lg sm:rounded-xl bg-white/10 backdrop-blur-md border border-white/20 p-3 sm:p-4 text-center shadow-lg animate-slide-up animate-delay-500">
+                <div className="flex items-center justify-center gap-0.5 sm:gap-1 text-xl sm:text-2xl md:text-3xl font-bold text-white">
                   4.8
-                  <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                  <Star className="h-4 w-4 sm:h-5 sm:w-5 fill-yellow-400 text-yellow-400" />
                 </div>
-                <div className="text-sm text-white/80 sm:text-base">Rating</div>
+                <div className="text-xs sm:text-sm md:text-base text-white/80">Rating</div>
               </div>
-              <div className="rounded-xl bg-white/10 backdrop-blur-md border border-white/20 p-4 text-center shadow-lg animate-slide-up animate-delay-600">
-                <div className="text-2xl font-bold text-white sm:text-3xl">50K+</div>
-                <div className="text-sm text-white/80 sm:text-base">Students</div>
+              <div className="rounded-lg sm:rounded-xl bg-white/10 backdrop-blur-md border border-white/20 p-3 sm:p-4 text-center shadow-lg animate-slide-up animate-delay-600">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white">50K+</div>
+                <div className="text-xs sm:text-sm md:text-base text-white/80">Students</div>
               </div>
             </div>
           </div>
@@ -103,7 +103,7 @@ export function HeroSection() {
                   </div>
                   <p className="text-sm font-semibold text-gray-900 mb-2">Best NEET PG App!</p>
                   <p className="text-xs text-gray-600 leading-relaxed">
-                    DocPrep's question bank is incredible! The explanations are clear and concise. I've improved my
+                    DocPrep&apos;s question bank is incredible! The explanations are clear and concise. I&apos;ve improved my
                     accuracy significantly. Highly recommend for serious NEET PG aspirants!
                   </p>
                 </div>

@@ -25,10 +25,12 @@ export function TestCreationSection() {
         {/* Test Creation Options */}
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {/* Chapter-Based Test */}
-          <div className="group relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-indigo-200">
+          <div className="group relative bg-gradient-to-br from-white to-indigo-50/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-indigo-100 hover:border-indigo-300 hover:-translate-y-2 overflow-hidden">
+            {/* Background decoration */}
+            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-indigo-100/50 to-transparent rounded-full blur-2xl transform translate-x-20 -translate-y-20 group-hover:scale-150 transition-transform duration-500"></div>
             {/* Icon Badge */}
-            <div className="absolute -top-4 sm:-top-6 left-6 sm:left-8">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+            <div className="absolute -top-4 sm:-top-6 left-6 sm:left-8 z-10">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                 <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
             </div>
@@ -80,17 +82,19 @@ export function TestCreationSection() {
           </div>
 
           {/* Custom Multi-Chapter Test */}
-          <div className="group relative bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300">
+          <div className="group relative bg-gradient-to-br from-indigo-600 via-indigo-700 to-indigo-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+            {/* Background decoration */}
+            <div className="absolute bottom-0 left-0 w-40 h-40 bg-white/10 rounded-full blur-2xl transform -translate-x-20 translate-y-20 group-hover:scale-150 transition-transform duration-500"></div>
             {/* Icon Badge */}
-            <div className="absolute -top-4 sm:-top-6 left-6 sm:left-8">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+            <div className="absolute -top-4 sm:-top-6 left-6 sm:left-8 z-10">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                 <Target className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
             </div>
 
             {/* Popular Badge */}
-            <div className="absolute -top-2 sm:-top-3 -right-2 sm:-right-3">
-              <div className="bg-orange-500 text-white text-xs font-bold px-2 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-lg">
+            <div className="absolute -top-2 sm:-top-3 -right-2 sm:-right-3 z-10">
+              <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs font-bold px-2 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-xl animate-pulse">
                 POPULAR
               </div>
             </div>

@@ -39,7 +39,7 @@ export function HeroSection() {
               {["MBBS Curriculum", "FMGE", "NEET PG", "NEET SS", "PG Residency"].map((category) => (
                 <button
                   key={category}
-                  className="rounded-full border-2 border-white/40 bg-white/5 px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-medium text-white backdrop-blur-sm hover:bg-white/15 transition-colors"
+                  className="rounded-full border-2 border-white/40 bg-white/5 px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-medium text-white backdrop-blur-sm hover:bg-white hover:text-[#3D3D8F] hover:border-white hover:shadow-lg hover:scale-105 transition-all duration-300"
                 >
                   {category}
                 </button>
@@ -47,14 +47,14 @@ export function HeroSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 animate-slide-up animate-delay-300">
-              <Button size="lg" className="bg-white text-[#3D3D8F] hover:bg-white/90 font-semibold shadow-lg text-sm sm:text-base w-full sm:w-auto">
+              <Button size="lg" className="bg-gradient-to-r from-white to-gray-100 text-[#3D3D8F] hover:from-white hover:to-white hover:shadow-2xl hover:scale-105 font-semibold shadow-xl text-sm sm:text-base w-full sm:w-auto transition-all duration-300">
                 <ExternalLink className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Practice Questions Now
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white/30 bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm font-semibold text-sm sm:text-base w-full sm:w-auto"
+                className="border-2 border-white/40 bg-gradient-to-r from-orange-500/20 to-yellow-500/20 text-white hover:from-orange-500 hover:to-yellow-500 hover:border-orange-400 hover:shadow-xl hover:scale-105 backdrop-blur-sm font-semibold text-sm sm:text-base w-full sm:w-auto transition-all duration-300"
               >
                 <Sparkles className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Start Free Trial
@@ -62,7 +62,7 @@ export function HeroSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white/30 bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm font-semibold text-sm sm:text-base w-full sm:w-auto"
+                className="border-2 border-white/40 bg-white/10 text-white hover:bg-white hover:text-[#3D3D8F] hover:border-white hover:shadow-xl hover:scale-105 backdrop-blur-sm font-semibold text-sm sm:text-base w-full sm:w-auto transition-all duration-300"
               >
                 <PlayCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 View Demo
@@ -70,19 +70,19 @@ export function HeroSection() {
             </div>
 
             <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-6 sm:pt-8">
-              <div className="rounded-lg sm:rounded-xl bg-white/10 backdrop-blur-md border border-white/20 p-3 sm:p-4 text-center shadow-lg animate-slide-up animate-delay-400">
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white">10K+</div>
+              <div className="group rounded-lg sm:rounded-xl bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-md border border-white/30 p-3 sm:p-4 text-center shadow-lg hover:shadow-2xl hover:scale-105 hover:from-white/20 hover:to-white/10 transition-all duration-300 animate-slide-up animate-delay-400">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white group-hover:scale-110 transition-transform">10K+</div>
                 <div className="text-xs sm:text-sm md:text-base text-white/80">Questions</div>
               </div>
-              <div className="rounded-lg sm:rounded-xl bg-white/10 backdrop-blur-md border border-white/20 p-3 sm:p-4 text-center shadow-lg animate-slide-up animate-delay-500">
-                <div className="flex items-center justify-center gap-0.5 sm:gap-1 text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              <div className="group rounded-lg sm:rounded-xl bg-gradient-to-br from-yellow-500/20 to-orange-500/10 backdrop-blur-md border border-yellow-400/30 p-3 sm:p-4 text-center shadow-lg hover:shadow-2xl hover:scale-105 hover:from-yellow-500/30 hover:to-orange-500/20 transition-all duration-300 animate-slide-up animate-delay-500">
+                <div className="flex items-center justify-center gap-0.5 sm:gap-1 text-xl sm:text-2xl md:text-3xl font-bold text-white group-hover:scale-110 transition-transform">
                   4.8
-                  <Star className="h-4 w-4 sm:h-5 sm:w-5 fill-yellow-400 text-yellow-400" />
+                  <Star className="h-4 w-4 sm:h-5 sm:w-5 fill-yellow-400 text-yellow-400 animate-pulse" />
                 </div>
-                <div className="text-xs sm:text-sm md:text-base text-white/80">Rating</div>
+                <div className="text-xs sm:text-sm md:text-base text-white/90">Rating</div>
               </div>
-              <div className="rounded-lg sm:rounded-xl bg-white/10 backdrop-blur-md border border-white/20 p-3 sm:p-4 text-center shadow-lg animate-slide-up animate-delay-600">
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white">50K+</div>
+              <div className="group rounded-lg sm:rounded-xl bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-md border border-white/30 p-3 sm:p-4 text-center shadow-lg hover:shadow-2xl hover:scale-105 hover:from-white/20 hover:to-white/10 transition-all duration-300 animate-slide-up animate-delay-600">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white group-hover:scale-110 transition-transform">50K+</div>
                 <div className="text-xs sm:text-sm md:text-base text-white/80">Students</div>
               </div>
             </div>

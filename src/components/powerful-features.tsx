@@ -69,16 +69,17 @@ export function PowerfulFeatures() {
               <article
                 key={index}
                 role="listitem"
-                className={`group rounded-xl sm:rounded-2xl bg-white p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-cyan-200 hover:-translate-y-2 ${
+                className={`group relative rounded-xl sm:rounded-2xl bg-gradient-to-br from-white to-cyan-50/30 p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-cyan-100/50 hover:border-cyan-300 hover:-translate-y-3 overflow-hidden ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${delay}ms` }}
               >
-                <div className="mb-4 sm:mb-6 inline-flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-lg sm:rounded-xl bg-cyan-100 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-3" aria-hidden="true">
+                <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-cyan-100/50 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+                <div className="relative mb-4 sm:mb-6 inline-flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-600 text-white shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" aria-hidden="true">
                   <Icon className="h-6 w-6 sm:h-7 sm:w-7" />
                 </div>
-                <h3 className="mb-2 sm:mb-3 text-lg sm:text-xl font-bold text-gray-900">{feature.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{feature.description}</p>
+                <h3 className="relative mb-2 sm:mb-3 text-lg sm:text-xl font-bold text-gray-900 group-hover:text-cyan-600 transition-colors">{feature.title}</h3>
+                <p className="relative text-sm text-gray-600 leading-relaxed">{feature.description}</p>
               </article>
             )
           })}

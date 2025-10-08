@@ -49,15 +49,16 @@ export function FeaturesSection() {
             return (
               <div
                 key={index}
-                className={`group rounded-xl sm:rounded-2xl bg-white p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-200 ${
+                className={`group relative rounded-xl sm:rounded-2xl bg-gradient-to-br from-white to-blue-50/30 p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-blue-100/50 hover:border-blue-300 hover:-translate-y-2 hover:scale-105 overflow-hidden ${
                   index >= 3 ? "sm:col-span-1 lg:col-start-2" : ""
                 } ${index === 3 ? "lg:col-start-2" : ""}`}
               >
-                <div className="mb-4 inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-lg sm:rounded-xl bg-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100/50 to-transparent rounded-full blur-2xl transform translate-x-16 -translate-y-16 group-hover:scale-150 transition-transform duration-500"></div>
+                <div className="relative mb-4 inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg group-hover:shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                   <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
                 </div>
-                <h3 className="mb-2 sm:mb-3 text-base sm:text-lg font-bold text-gray-900">{feature.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{feature.description}</p>
+                <h3 className="relative mb-2 sm:mb-3 text-base sm:text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors">{feature.title}</h3>
+                <p className="relative text-sm text-gray-600 leading-relaxed">{feature.description}</p>
               </div>
             )
           })}

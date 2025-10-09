@@ -1,6 +1,6 @@
 "use client"
 
-import { TestTube2, LayoutGrid, BookOpen, FileText } from "lucide-react"
+import { TestTube2, LayoutGrid, FileText } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import {
   Carousel,

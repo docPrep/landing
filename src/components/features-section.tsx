@@ -1,6 +1,6 @@
 "use client"
 
-import { ImageIcon, List, MessageSquare, Plus, HelpCircle, Star, Sparkles, ChevronLeft, ChevronRight } from "lucide-react"
+import { ImageIcon, List, MessageSquare, Plus, HelpCircle, Star, Sparkles } from "lucide-react"
 import {
   Carousel,
   CarouselContent,

@@ -1,6 +1,6 @@
 "use client"
 
-import { Trophy, Smartphone, TrendingUp, Star, Zap, Award, CheckCircle2, BookOpen, Users, Rocket, Sparkles } from "lucide-react" 
+import { Trophy, Smartphone, TrendingUp, Star, Rocket, Sparkles } from "lucide-react" 
 import { useEffect, useRef, useState } from "react"
 import { AnimatedGridBackground } from "./animated-grid-background"
 import {

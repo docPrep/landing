@@ -1,7 +1,6 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { ExternalLink, Star, PlayCircle, Sparkles, Clock, Timer } from "lucide-react"
+import { Timer } from "lucide-react"
 import Image from "next/image"
 import { AnimatedBackground } from "./ui/animated-background"
 import { useState, useEffect } from "react"

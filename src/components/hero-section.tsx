@@ -15,27 +15,35 @@ export function HeroSection() {
         <div className="absolute top-1/4 right-1/4 h-64 w-64 rounded-full bg-orange-500/10 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <div className="flex justify-center mb-8 animate-slide-up">
-          <div className="inline-flex items-center bg-white rounded-full p-4 shadow-lg">
-            <Image src="/logo.png" alt="DocPrep Logo" width={48} height={48} className="h-10 w-auto" />
-          </div>
-        </div>
+      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <div className="flex justify-center mb-8 animate-slide-up">
+  <div className="flex items-center bg-white rounded-xl w-auto p-5 mb-4 shadow-xl">
+    <Image 
+      src="/logo.png" 
+      alt="DocPrep Logo" 
+      width={64} 
+      height={64} 
+      priority
+      unoptimized
+      className="h-16 w-32 object-contain"
+    />
+  </div>
+</div>
 
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
+
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center mb-5">
           {/* Left Content */}
-          <div className="space-y-6 sm:space-y-8">
+          <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
             <div className="space-y-4 sm:space-y-6 animate-slide-up-large animate-delay-100">
               <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white text-balance">
                 Ace NEET PG with India&apos;s Most Comprehensive Question Bank
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed text-pretty">
-                Unlock your dream medical specialization with <span className="font-bold">DocPrep&apos;s</span> unmatched
-                question bank! Master 10,000+ high-yield questions with expert explanations and concise notes.
+              Master 10,000+ high-yield questions with expert notes and explanations to secure your dream medical specialization.
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-2 sm:gap-3 animate-slide-up animate-delay-200">
+            <div className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start animate-slide-up animate-delay-200">
               {["MBBS Curriculum", "FMGE", "NEET PG", "NEET SS", "PG Residency"].map((category) => (
                 <button
                   key={category}
@@ -46,46 +54,23 @@ export function HeroSection() {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 animate-slide-up animate-delay-300">
-              <Button size="lg" className="bg-gradient-to-r from-white to-gray-100 text-[#3D3D8F] hover:from-white hover:to-white hover:shadow-2xl hover:scale-105 font-semibold shadow-xl text-sm sm:text-base w-full sm:w-auto transition-all duration-300">
-                <ExternalLink className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                Practice Questions Now
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-white/40 bg-gradient-to-r from-orange-500/20 to-yellow-500/20 text-white hover:from-orange-500 hover:to-yellow-500 hover:border-orange-400 hover:shadow-xl hover:scale-105 backdrop-blur-sm font-semibold text-sm sm:text-base w-full sm:w-auto transition-all duration-300"
-              >
-                <Sparkles className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                Start Free Trial
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-white/40 bg-white/10 text-white hover:bg-white hover:text-[#3D3D8F] hover:border-white hover:shadow-xl hover:scale-105 backdrop-blur-sm font-semibold text-sm sm:text-base w-full sm:w-auto transition-all duration-300"
-              >
-                <PlayCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                View Demo
-              </Button>
+            {/* Coming Soon Badge */}
+            <div className="flex justify-center lg:justify-start animate-slide-up animate-delay-300">
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 via-yellow-500 to-orange-500 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                <div className="relative px-8 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-white to-gray-100 rounded-2xl leading-none flex items-center divide-x divide-gray-300 shadow-2xl">
+                  <div className="flex items-center space-x-3">
+                    <Sparkles className="w-6 h-6 sm:w-7 sm:h-7 text-orange-500 animate-spin-slow" />
+                    <span className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#3D3D8F] via-orange-500 to-[#3D3D8F] bg-clip-text text-transparent">
+                      Coming Soon
+                    </span>
+                    <Sparkles className="w-6 h-6 sm:w-7 sm:h-7 text-orange-500 animate-spin-slow" style={{ animationDirection: 'reverse' }} />
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-6 sm:pt-8">
-              <div className="group rounded-lg sm:rounded-xl bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-md border border-white/30 p-3 sm:p-4 text-center shadow-lg hover:shadow-2xl hover:scale-105 hover:from-white/20 hover:to-white/10 transition-all duration-300 animate-slide-up animate-delay-400">
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white group-hover:scale-110 transition-transform">10K+</div>
-                <div className="text-xs sm:text-sm md:text-base text-white/80">Questions</div>
-              </div>
-              <div className="group rounded-lg sm:rounded-xl bg-gradient-to-br from-yellow-500/20 to-orange-500/10 backdrop-blur-md border border-yellow-400/30 p-3 sm:p-4 text-center shadow-lg hover:shadow-2xl hover:scale-105 hover:from-yellow-500/30 hover:to-orange-500/20 transition-all duration-300 animate-slide-up animate-delay-500">
-                <div className="flex items-center justify-center gap-0.5 sm:gap-1 text-xl sm:text-2xl md:text-3xl font-bold text-white group-hover:scale-110 transition-transform">
-                  4.8
-                  <Star className="h-4 w-4 sm:h-5 sm:w-5 fill-yellow-400 text-yellow-400 animate-pulse" />
-                </div>
-                <div className="text-xs sm:text-sm md:text-base text-white/90">Rating</div>
-              </div>
-              <div className="group rounded-lg sm:rounded-xl bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-md border border-white/30 p-3 sm:p-4 text-center shadow-lg hover:shadow-2xl hover:scale-105 hover:from-white/20 hover:to-white/10 transition-all duration-300 animate-slide-up animate-delay-600">
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white group-hover:scale-110 transition-transform">50K+</div>
-                <div className="text-xs sm:text-sm md:text-base text-white/80">Students</div>
-              </div>
-            </div>
+           
           </div>
 
           {/* Right Content - Floating Cards & Phone Mockup */}

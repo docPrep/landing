@@ -197,6 +197,10 @@
     animation: blob 7s infinite;
   }
 
+  .animate-spin-slow {
+    animation: spin-slow 3s linear infinite;
+  }
+
   .animation-delay-2000 {
     animation-delay: 2s;
   }
@@ -290,6 +294,15 @@
     }
     100% {
       transform: translate(0px, 0px) scale(1);
+    }
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
     }
   }
 }

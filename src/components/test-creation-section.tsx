@@ -11,7 +11,7 @@ export function TestCreationSection() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-12 sm:mb-16 px-4">
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-indigo-50 rounded-full mb-3 sm:mb-4">
             <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-orange-500" />
             <span className="text-xs sm:text-sm font-semibold text-indigo-900">Smart Test Creation</span>
@@ -23,13 +23,13 @@ export function TestCreationSection() {
         </div>
 
         {/* Test Creation Options */}
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto px-4">
           {/* Chapter-Based Test */}
-          <div className="group relative bg-gradient-to-br from-white to-indigo-50/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-indigo-100 hover:border-indigo-300 hover:-translate-y-2 overflow-hidden">
+          <div className="group relative bg-gradient-to-br from-white to-indigo-50/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-indigo-100 hover:border-indigo-300 hover:-translate-y-2 overflow-hidden text-center lg:text-left">
             {/* Background decoration */}
             <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-indigo-100/50 to-transparent rounded-full blur-2xl transform translate-x-20 -translate-y-20 group-hover:scale-150 transition-transform duration-500"></div>
             {/* Icon Badge */}
-            <div className="absolute -top-4 sm:-top-6 left-6 sm:left-8 z-10">
+            <div className="absolute -top-4 sm:-top-6 left-1/2 lg:left-6 sm:lg:left-8 -translate-x-1/2 lg:translate-x-0 z-10">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                 <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
@@ -82,11 +82,11 @@ export function TestCreationSection() {
           </div>
 
           {/* Custom Multi-Chapter Test */}
-          <div className="group relative bg-gradient-to-br from-indigo-600 via-indigo-700 to-indigo-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+          <div className="group relative bg-gradient-to-br from-indigo-600 via-indigo-700 to-indigo-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden text-center lg:text-left">
             {/* Background decoration */}
             <div className="absolute bottom-0 left-0 w-40 h-40 bg-white/10 rounded-full blur-2xl transform -translate-x-20 translate-y-20 group-hover:scale-150 transition-transform duration-500"></div>
             {/* Icon Badge */}
-            <div className="absolute -top-4 sm:-top-6 left-6 sm:left-8 z-10">
+            <div className="absolute -top-4 sm:-top-6 left-1/2 lg:left-6 sm:lg:left-8 -translate-x-1/2 lg:translate-x-0 z-10">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                 <Target className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>

@@ -78,7 +78,7 @@ export function WhyDocPrep() {
           </p>
         </div>
 
-        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-8 sm:mb-12" role="list">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-8 sm:mb-12 max-w-4xl lg:max-w-7xl mx-auto" role="list">
           {topFeatures.map((feature, index) => {
             const Icon = feature.icon
             const delay = (index + 1) * 200
@@ -86,39 +86,37 @@ export function WhyDocPrep() {
               <article
                 key={index}
                 role="listitem"
-                className={`group relative rounded-xl sm:rounded-2xl bg-gradient-to-br from-white to-gray-50 p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200 hover:border-[#3D3D8F]/50 hover:-translate-y-3 overflow-hidden ${
+                className={`group rounded-xl sm:rounded-2xl bg-white p-6 sm:p-8 shadow-md hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#3D3D8F]/30 hover:-translate-y-2 text-center lg:text-left ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${delay}ms` }}
               >
-                <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br from-[#3D3D8F]/10 to-transparent rounded-full blur-xl group-hover:scale-150 transition-transform duration-500"></div>
-                <div className="relative mb-4 sm:mb-6 inline-flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#3D3D8F] to-[#5B5BC7] text-white shadow-lg group-hover:shadow-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" aria-hidden="true">
+                <div className="mb-4 sm:mb-6 inline-flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-blue-100 text-[#3D3D8F] group-hover:bg-[#3D3D8F] group-hover:text-white transition-all duration-300 group-hover:scale-110 mx-auto lg:mx-0" aria-hidden="true">
                   <Icon className="h-6 w-6 sm:h-8 sm:w-8" />
                 </div>
-                <h3 className="relative mb-2 sm:mb-3 text-lg sm:text-xl font-bold text-gray-900 group-hover:text-[#3D3D8F] transition-colors">{feature.title}</h3>
-                <p className="relative text-sm text-gray-600 leading-relaxed">{feature.description}</p>
+                <h3 className="mb-2 sm:mb-3 text-lg sm:text-xl font-bold text-gray-900">{feature.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{feature.description}</p>
               </article>
             )
           })}
         </div>
 
-        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list" aria-label="Platform statistics">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl lg:max-w-7xl mx-auto" role="list" aria-label="Platform statistics">
           {stats.map((stat, index) => {
             const delay = (index + 4) * 200
             return (
               <article
                 key={index}
                 role="listitem"
-                className={`group relative overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-br ${stat.gradient} p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-105 ${
+                className={`group relative overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-br ${stat.gradient} p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 text-center lg:text-left ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${delay}ms` }}
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true" />
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16 group-hover:scale-150 transition-transform duration-500"></div>
+                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true" />
                 <div className="relative">
-                  <div className="mb-3 sm:mb-4 text-3xl sm:text-4xl font-bold text-white drop-shadow-lg group-hover:scale-110 transition-transform">{stat.number}</div>
-                  <h3 className="mb-1 sm:mb-2 text-md sm:text-lg font-bold text-white drop-shadow-md">{stat.title}</h3>
+                  <div className="mb-3 sm:mb-4 text-3xl sm:text-4xl font-bold text-white">{stat.number}</div>
+                  <h3 className="mb-1 sm:mb-2 text-md sm:text-lg font-bold text-white">{stat.title}</h3>
                   <p className="text-sm text-white/90">{stat.description}</p>
                 </div>
               </article>

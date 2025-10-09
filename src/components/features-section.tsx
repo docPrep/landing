@@ -1,7 +1,21 @@
-import { ImageIcon, List, MessageSquare, Plus, HelpCircle, Star, Sparkles } from "lucide-react"
-import { Marquee } from "@/components/ui/marquee"
+"use client"
+
+import { ImageIcon, List, MessageSquare, Plus, HelpCircle, Star, Sparkles, ChevronLeft, ChevronRight } from "lucide-react"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
+import { useRef } from "react"
 
 export function FeaturesSection() {
+  const plugin = useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true })
+  )
+
   const features = [
     {
       icon: ImageIcon,
@@ -63,32 +77,49 @@ export function FeaturesSection() {
           </p>
         </div>
 
-        {/* Animated Stats Marquee */}
-        <div className="mb-12 sm:mb-16">
-          <Marquee pauseOnHover className="[--duration:30s]">
-            {stats.map((stat, index) => {
-              const Icon = stat.icon
-              return (
-                <div
-                  key={index}
-                  className="relative group mx-4"
-                >
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#3D3D8F] to-[#FF6B4A] rounded-2xl blur opacity-30 group-hover:opacity-75 transition duration-300"></div>
-                  <div className="relative flex items-center gap-3 bg-white rounded-2xl px-6 py-4 shadow-lg">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#3D3D8F] to-[#5B5BC7] text-white">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold bg-gradient-to-r from-[#3D3D8F] to-[#5B5BC7] bg-clip-text text-transparent">
-                        {stat.value}
+        {/* Animated Stats Carousel */}
+        <div className="mb-12 sm:mb-16 relative px-12">
+          <Carousel
+            plugins={[plugin.current]}
+            className="w-full cursor-grab active:cursor-grabbing"
+            opts={{
+              align: "start",
+              loop: true,
+              skipSnaps: false,
+              dragFree: false,
+            }}
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {stats.map((stat, index) => {
+                const Icon = stat.icon
+                return (
+                  <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4 select-none">
+                    <div className="relative group pointer-events-auto">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-[#3D3D8F] to-[#FF6B4A] rounded-2xl blur opacity-30 group-hover:opacity-75 transition duration-300 pointer-events-none"></div>
+                      <div className="relative flex items-center gap-3 bg-white rounded-2xl px-6 py-4 shadow-lg user-select-none">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#3D3D8F] to-[#5B5BC7] text-white pointer-events-none">
+                          <Icon className="h-6 w-6" />
+                        </div>
+                        <div className="pointer-events-none">
+                          <div className="text-2xl font-bold bg-gradient-to-r from-[#3D3D8F] to-[#5B5BC7] bg-clip-text text-transparent">
+                            {stat.value}
+                          </div>
+                          <div className="text-xs text-gray-600 font-medium">{stat.label}</div>
+                        </div>
                       </div>
-                      <div className="text-xs text-gray-600 font-medium">{stat.label}</div>
                     </div>
-                  </div>
-                </div>
-              )
-            })}
-          </Marquee>
+                  </CarouselItem>
+                )
+              })}
+            </CarouselContent>
+            
+            {/* Navigation Buttons */}
+            <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-lg border-2 border-[#3D3D8F]/20 hover:bg-[#3D3D8F] hover:text-white transition-all" />
+            <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-lg border-2 border-[#3D3D8F]/20 hover:bg-[#3D3D8F] hover:text-white transition-all" />
+          </Carousel>
+          <p className="text-center text-xs text-gray-500 mt-4">👆 Click and drag to swipe | Use arrow buttons | Auto-plays every 3s</p>
         </div>
 
         {/* Feature Cards Grid */}

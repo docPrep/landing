@@ -2,11 +2,26 @@
 
 import { TestTube2, LayoutGrid, BookOpen, FileText, GraduationCap, Brain, Target, TrendingUp, Users, Clock } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
-import { Marquee } from "@/components/ui/marquee"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
 
 export function PowerfulFeatures() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
+  
+  const plugin = useRef(
+    Autoplay({ 
+      delay: 3000, 
+      stopOnInteraction: false,
+      stopOnMouseEnter: true,
+    })
+  )
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,7 +51,11 @@ export function PowerfulFeatures() {
       title: "Create Custom Tests",
       description: "Build your own mini or full-length tests by topic, subject, or chapter.",
     },
-    
+    {
+      icon: BookOpen,
+      title: "Access Concise & Focused Notes",
+      description: "Expert handwritten notes with clear visuals and clinical insights.",
+    },
     {
       icon: FileText,
       title: "Test Series",
@@ -71,34 +90,48 @@ export function PowerfulFeatures() {
           </p>
         </div>
 
-        {/* Marquee Section */}
-       
-
-        <div className={`transition-all duration-1000 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-          <Marquee pauseOnHover className="[--duration:40s]">
-            {features.map((feature, index) => {
-              const Icon = feature.icon
-              return (
-                <article
-                  key={index}
-                  role="listitem"
-                  className="group relative rounded-2xl bg-white p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-[#3D3D8F]/30 hover:-translate-y-2 overflow-hidden mx-4 w-[320px] flex-shrink-0"
-                >
-                  {/* Glowing Orb */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#3D3D8F]/10 to-[#FF6B4A]/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16 group-hover:scale-150 transition-transform duration-500"></div>
-                  
-                  <div className={`relative mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${index % 2 === 0 ? 'from-[#3D3D8F] to-[#5B5BC7]' : 'from-[#FF6B4A] to-[#FF8566]'} text-white shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-6`} aria-hidden="true">
-                    <Icon className="h-7 w-7" />
-                  </div>
-                  <h3 className="relative mb-3 text-lg font-bold text-gray-900">{feature.title}</h3>
-                  <p className="relative text-sm text-gray-600 leading-relaxed">{feature.description}</p>
-                  
-                  {/* Bottom Accent Line */}
-                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${index % 2 === 0 ? 'from-[#3D3D8F] to-[#5B5BC7]' : 'from-[#FF6B4A] to-[#FF8566]'} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
-                </article>
-              )
-            })}
-          </Marquee>
+        {/* Draggable Carousel with Auto-Play */}
+        <div className={`relative px-4 sm:px-8 md:px-12 transition-all duration-1000 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+          <Carousel
+            plugins={[plugin.current]}
+            className="w-full max-w-7xl mx-auto cursor-grab active:cursor-grabbing"
+            opts={{
+              align: "center",
+              loop: true,
+              skipSnaps: false,
+              dragFree: false,
+            }}
+          >
+            <CarouselContent className="-ml-1 sm:-ml-2 md:-ml-4">
+              {features.map((feature, index) => {
+                const Icon = feature.icon
+                return (
+                  <CarouselItem key={index} className="pl-1 sm:pl-2 md:pl-4 basis-[90%] xs:basis-[85%] sm:basis-1/2 lg:basis-1/3 xl:basis-1/4 select-none">
+                    <article
+                      role="listitem"
+                      className="group relative rounded-xl sm:rounded-2xl bg-white p-4 sm:p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-[#3D3D8F]/30 hover:-translate-y-2 overflow-hidden pointer-events-auto h-full"
+                    >
+                      {/* Glowing Orb */}
+                      <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-[#3D3D8F]/10 to-[#FF6B4A]/10 rounded-full blur-2xl transform translate-x-12 sm:translate-x-16 -translate-y-12 sm:-translate-y-16 group-hover:scale-150 transition-transform duration-500 pointer-events-none"></div>
+                      
+                      <div className={`relative mb-3 sm:mb-4 inline-flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br ${index % 2 === 0 ? 'from-[#3D3D8F] to-[#5B5BC7]' : 'from-[#FF6B4A] to-[#FF8566]'} text-white shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 pointer-events-none`} aria-hidden="true">
+                        <Icon className="h-6 w-6 sm:h-7 sm:w-7" />
+                      </div>
+                      <h3 className="relative mb-2 sm:mb-3 text-base sm:text-lg font-bold text-gray-900 pointer-events-none line-clamp-2">{feature.title}</h3>
+                      <p className="relative text-xs sm:text-sm text-gray-600 leading-relaxed pointer-events-none line-clamp-3 sm:line-clamp-none">{feature.description}</p>
+                      
+                      {/* Bottom Accent Line */}
+                      <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${index % 2 === 0 ? 'from-[#3D3D8F] to-[#5B5BC7]' : 'from-[#FF6B4A] to-[#FF8566]'} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 pointer-events-none`}></div>
+                    </article>
+                  </CarouselItem>
+                )
+              })}
+            </CarouselContent>
+            
+            {/* Navigation Buttons */}
+           
+          </Carousel>
+        
         </div>
       </div>
     </section>

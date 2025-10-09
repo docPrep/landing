@@ -1,13 +1,25 @@
 "use client"
 
-import { Trophy, Smartphone, TrendingUp, Star, Zap, Award, CheckCircle2, BookOpen, Users, Rocket, Sparkles, Bell } from "lucide-react"
+import { Trophy, Smartphone, TrendingUp, Star, Zap, Award, CheckCircle2, BookOpen, Users, Rocket, Sparkles } from "lucide-react" 
 import { useEffect, useRef, useState } from "react"
 import { AnimatedGridBackground } from "./animated-grid-background"
-import { Marquee } from "@/components/ui/marquee"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
 
 export function WhyDocPrep() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
+  
+  const plugin = useRef(
+    Autoplay({ 
+      delay: 3000, 
+      stopOnInteraction: false,
+    })
+  )
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -44,35 +56,8 @@ export function WhyDocPrep() {
     },
   ]
 
-  const stats = [
-    {
-      number: "10000+",
-      title: "Questions to Practice",
-      description: "Categorized and explained",
-      gradient: "from-[#3D3D8F] to-[#5B5BC7]",
-    },
-    {
-      number: "24/7",
-      title: "Access",
-      description: "Study anytime, anywhere",
-      gradient: "from-orange-500  to-orange-300",
-    },
-    {
-      number: "125+",
-      title: "Repeated Questions",
-      description: "In NEET PG exams",
-      gradient: "from-[#3D3D8F] to-[#2563EB]",
-    },
-  ]
 
-  const marqueeHighlights = [
-    { icon: Star, text: "Top Ranked Platform", subtext: "#1 Choice", color: "from-[#3D3D8F] to-[#5B5BC7]" },
-    { icon: Award, text: "Certified Content", subtext: "Expert Verified", color: "from-[#FF6B4A] to-[#FF8566]" },
-    { icon: Zap, text: "Fast Results", subtext: "Instant Feedback", color: "from-[#3D3D8F] to-[#5B5BC7]" },
-    { icon: CheckCircle2, text: "100% Updated", subtext: "Latest Syllabus", color: "from-[#FF6B4A] to-[#FF8566]" },
-    { icon: BookOpen, text: "Rich Library", subtext: "Vast Resources", color: "from-[#3D3D8F] to-[#5B5BC7]" },
-    { icon: Users, text: "Active Community", subtext: "Learn Together", color: "from-[#FF6B4A] to-[#FF8566]" },
-  ]
+
 
   return (
     <section ref={sectionRef} className="relative bg-gradient-to-b from-white via-[#F5F5FF] to-white py-16 sm:py-20 lg:py-28 overflow-hidden">
@@ -94,46 +79,60 @@ export function WhyDocPrep() {
 
         
 
-        <div className={`mb-8 sm:mb-12 transition-all duration-1000 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-          <Marquee pauseOnHover className="[--duration:35s]" reverse>
-            {topFeatures.map((feature, index) => {
-              const Icon = feature.icon
-              const colors = index === 1 ? 'from-[#FF6B4A] to-[#FF8566]' : 'from-[#3D3D8F] to-[#5B5BC7]'
-              return (
-                <article
-                  key={index}
-                  role="listitem"
-                  className="group relative rounded-2xl bg-white p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-[#3D3D8F]/30 hover:-translate-y-2 overflow-hidden mx-4 w-[340px] flex-shrink-0"
-                >
-                  {/* Animated Gradient Background */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${colors} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-                  
-                  {/* Glowing Orb */}
-                  <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${colors} opacity-10 rounded-full blur-2xl transform translate-x-16 -translate-y-16 group-hover:scale-150 transition-transform duration-500`}></div>
-                  
-                  {/* Floating Icon Badge */}
-                  <div className="relative mb-5">
-                    <div className={`absolute -inset-2 bg-gradient-to-br ${colors} rounded-xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity duration-300 animate-pulse`}></div>
-                    <div className={`relative inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br ${colors} text-white shadow-xl group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-12`} aria-hidden="true">
-                      <Icon className="h-8 w-8" />
-                    </div>
-                  </div>
-                  
-                  <h3 className={`relative mb-3 text-xl font-bold bg-gradient-to-r ${colors} bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300`}>
-                    {feature.title}
-                  </h3>
-                  <p className="relative text-sm text-gray-600 leading-relaxed">{feature.description}</p>
-                  
-                  {/* Decorative Corner Elements */}
-                  <div className={`absolute top-3 right-3 w-8 h-8 border-t-2 border-r-2 rounded-tr-xl opacity-20 group-hover:opacity-60 transition-opacity duration-300`} style={{ borderColor: index === 1 ? '#FF6B4A' : '#3D3D8F' }}></div>
-                  <div className={`absolute bottom-3 left-3 w-8 h-8 border-b-2 border-l-2 rounded-bl-xl opacity-20 group-hover:opacity-60 transition-opacity duration-300`} style={{ borderColor: index === 1 ? '#FF6B4A' : '#3D3D8F' }}></div>
-                  
-                  {/* Bottom Accent Line */}
-                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${colors} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
-                </article>
-              )
-            })}
-          </Marquee>
+        <div className={`relative px-4 sm:px-8 md:px-12 mb-8 sm:mb-12 transition-all duration-1000 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+          <Carousel
+            plugins={[plugin.current]}
+            className="w-full max-w-7xl mx-auto cursor-grab active:cursor-grabbing"
+            opts={{
+              align: "start",
+              loop: true,
+              skipSnaps: false,
+              dragFree: true,
+              watchDrag: true,
+            }}
+          >
+            <CarouselContent className="-ml-1 sm:-ml-2 md:-ml-4">
+              {[...topFeatures, ...topFeatures].map((feature, index) => {
+                const Icon = feature.icon
+                const colors = index % 2 === 0 ? 'from-[#FF6B4A] to-[#FF8566]' : 'from-[#3D3D8F] to-[#5B5BC7]'
+                const borderColor = index % 2 === 0 ? '#FF6B4A' : '#3D3D8F'
+                return (
+                  <CarouselItem key={index} className="pl-1 sm:pl-2 md:pl-4 basis-[90%] xs:basis-[85%] sm:basis-1/2 lg:basis-1/3 select-none">
+                    <article
+                      role="listitem"
+                      className="group relative rounded-xl sm:rounded-2xl bg-white p-4 sm:p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-[#3D3D8F]/30 hover:-translate-y-2 overflow-hidden pointer-events-auto h-full"
+                    >
+                      {/* Animated Gradient Background */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${colors} opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none`}></div>
+                      
+                      {/* Glowing Orb */}
+                      <div className={`absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br ${colors} opacity-10 rounded-full blur-2xl transform translate-x-12 sm:translate-x-16 -translate-y-12 sm:-translate-y-16 group-hover:scale-150 transition-transform duration-500 pointer-events-none`}></div>
+                      
+                      {/* Floating Icon Badge */}
+                      <div className="relative mb-4 sm:mb-5 pointer-events-none">
+                        <div className={`absolute -inset-2 bg-gradient-to-br ${colors} rounded-xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity duration-300 animate-pulse`}></div>
+                        <div className={`relative inline-flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br ${colors} text-white shadow-xl group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-12`} aria-hidden="true">
+                          <Icon className="h-7 w-7 sm:h-8 sm:w-8" />
+                        </div>
+                      </div>
+                      
+                      <h3 className={`relative mb-2 sm:mb-3 text-lg sm:text-xl font-bold bg-gradient-to-r ${colors} bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 pointer-events-none line-clamp-2`}>
+                        {feature.title}
+                      </h3>
+                      <p className="relative text-xs sm:text-sm text-gray-600 leading-relaxed pointer-events-none line-clamp-3 sm:line-clamp-none">{feature.description}</p>
+                      
+                      {/* Decorative Corner Elements */}
+                      <div className={`absolute top-2 sm:top-3 right-2 sm:right-3 w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-r-2 rounded-tr-xl opacity-20 group-hover:opacity-60 transition-opacity duration-300 pointer-events-none`} style={{ borderColor }}></div>
+                      <div className={`absolute bottom-2 sm:bottom-3 left-2 sm:left-3 w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-l-2 rounded-bl-xl opacity-20 group-hover:opacity-60 transition-opacity duration-300 pointer-events-none`} style={{ borderColor }}></div>
+                      
+                      {/* Bottom Accent Line */}
+                      <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${colors} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 pointer-events-none`}></div>
+                    </article>
+                  </CarouselItem>
+                )
+              })}
+            </CarouselContent>
+          </Carousel>
         </div>
 
         {/* Coming Soon Section */}

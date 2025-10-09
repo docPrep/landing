@@ -86,13 +86,12 @@ export function WhyDocPrep() {
             opts={{
               align: "start",
               loop: true,
-              skipSnaps: false,
-              dragFree: true,
-              watchDrag: true,
+              dragFree: false,
+              slidesToScroll: 1,
             }}
           >
             <CarouselContent className="-ml-1 sm:-ml-2 md:-ml-4">
-              {[...topFeatures, ...topFeatures].map((feature, index) => {
+              {[...topFeatures, ...topFeatures, ...topFeatures].map((feature, index) => {
                 const Icon = feature.icon
                 const colors = index % 2 === 0 ? 'from-[#FF6B4A] to-[#FF8566]' : 'from-[#3D3D8F] to-[#5B5BC7]'
                 const borderColor = index % 2 === 0 ? '#FF6B4A' : '#3D3D8F'

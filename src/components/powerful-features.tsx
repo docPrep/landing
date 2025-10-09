@@ -1,13 +1,11 @@
 "use client"
 
-import { TestTube2, LayoutGrid, BookOpen, FileText, GraduationCap, Brain, Target, TrendingUp, Users, Clock } from "lucide-react"
+import { TestTube2, LayoutGrid, BookOpen, FileText } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
 
@@ -19,7 +17,6 @@ export function PowerfulFeatures() {
     Autoplay({ 
       delay: 3000, 
       stopOnInteraction: false,
-      stopOnMouseEnter: true,
     })
   )
 
@@ -51,11 +48,7 @@ export function PowerfulFeatures() {
       title: "Create Custom Tests",
       description: "Build your own mini or full-length tests by topic, subject, or chapter.",
     },
-    {
-      icon: BookOpen,
-      title: "Access Concise & Focused Notes",
-      description: "Expert handwritten notes with clear visuals and clinical insights.",
-    },
+
     {
       icon: FileText,
       title: "Test Series",
@@ -63,14 +56,7 @@ export function PowerfulFeatures() {
     },
   ]
 
-  const marqueeItems = [
-    { icon: GraduationCap, text: "Expert Faculty", subtext: "Top Educators", color: "from-[#3D3D8F] to-[#5B5BC7]" },
-    { icon: Brain, text: "AI-Powered", subtext: "Smart Learning", color: "from-[#FF6B4A] to-[#FF8566]" },
-    { icon: Target, text: "100% Accuracy", subtext: "Verified Content", color: "from-[#3D3D8F] to-[#5B5BC7]" },
-    { icon: TrendingUp, text: "Track Progress", subtext: "Detailed Analytics", color: "from-[#FF6B4A] to-[#FF8566]" },
-    { icon: Users, text: "50K+ Students", subtext: "Join Community", color: "from-[#3D3D8F] to-[#5B5BC7]" },
-    { icon: Clock, text: "24/7 Access", subtext: "Study Anytime", color: "from-[#FF6B4A] to-[#FF8566]" },
-  ]
+
 
   return (
     <section ref={sectionRef} className="relative bg-gradient-to-b from-white via-[#F5F5FF] to-white py-20 sm:py-28 overflow-hidden">
@@ -96,14 +82,14 @@ export function PowerfulFeatures() {
             plugins={[plugin.current]}
             className="w-full max-w-7xl mx-auto cursor-grab active:cursor-grabbing"
             opts={{
-              align: "center",
+              align: "start",
               loop: true,
-              skipSnaps: false,
               dragFree: false,
+              slidesToScroll: 1,
             }}
           >
             <CarouselContent className="-ml-1 sm:-ml-2 md:-ml-4">
-              {features.map((feature, index) => {
+              {[...features, ...features].map((feature, index) => {
                 const Icon = feature.icon
                 return (
                   <CarouselItem key={index} className="pl-1 sm:pl-2 md:pl-4 basis-[90%] xs:basis-[85%] sm:basis-1/2 lg:basis-1/3 xl:basis-1/4 select-none">

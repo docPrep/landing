@@ -74,7 +74,7 @@ export function PowerfulFeatures() {
                 }`}
                 style={{ transitionDelay: `${delay}ms` }}
               >
-                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-cyan-100 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 mx-auto lg:mx-0" aria-hidden="true">
+                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-blue-100 text-[#3D3D8F] group-hover:bg-[#3D3D8F] group-hover:text-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 mx-auto lg:mx-0" aria-hidden="true">
                   <Icon className="h-7 w-7" />
                 </div>
                 <h3 className="mb-3 text-xl font-bold text-gray-900">{feature.title}</h3>

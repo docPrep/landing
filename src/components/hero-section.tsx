@@ -31,9 +31,9 @@ export function HeroSection() {
 </div>
 
 
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center mb-5">
+        <div className="flex flex-col items-center justify-center mb-5">
           {/* Left Content */}
-          <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
+          <div className="space-y-6 sm:space-y-8 text-center ">
             <div className="space-y-4 sm:space-y-6 animate-slide-up-large animate-delay-100">
               <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white text-balance">
                 Ace NEET PG with India&apos;s Most Comprehensive Question Bank
@@ -43,7 +43,7 @@ export function HeroSection() {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start animate-slide-up animate-delay-200">
+            <div className="flex flex-wrap gap-2 sm:gap-3 justify-center  animate-slide-up animate-delay-200">
               {["MBBS Curriculum", "FMGE", "NEET PG", "NEET SS", "PG Residency"].map((category) => (
                 <button
                   key={category}
@@ -55,7 +55,7 @@ export function HeroSection() {
             </div>
 
             {/* Coming Soon Badge */}
-            <div className="flex justify-center lg:justify-start animate-slide-up animate-delay-300">
+            <div className="flex justify-center  animate-slide-up animate-delay-300">
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 via-yellow-500 to-orange-500 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
                 <div className="relative px-8 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-white to-gray-100 rounded-2xl leading-none flex items-center divide-x divide-gray-300 shadow-2xl">
@@ -73,95 +73,7 @@ export function HeroSection() {
            
           </div>
 
-          {/* Right Content - Floating Cards & Phone Mockup */}
-          <div className="relative hidden lg:block">
-            <div className="relative h-[600px]">
-              {/* Floating Review Card 1 */}
-              <div className="absolute top-0 right-20 w-80 animate-float-slow animate-slide-up animate-delay-400">
-                <div className="rounded-2xl bg-white p-6 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                  <div className="mb-3 flex items-center gap-2">
-                    <div className="flex gap-0.5">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                  </div>
-                  <p className="text-sm font-semibold text-gray-900 mb-2">Best NEET PG App!</p>
-                  <p className="text-xs text-gray-600 leading-relaxed">
-                    DocPrep&apos;s question bank is incredible! The explanations are clear and concise. I&apos;ve improved my
-                    accuracy significantly. Highly recommend for serious NEET PG aspirants!
-                  </p>
-                </div>
-              </div>
-
-              {/* Floating Review Card 2 */}
-              <div className="absolute top-48 right-0 w-80 animate-float-delayed animate-slide-up animate-delay-500">
-                <div className="rounded-2xl bg-white p-6 shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-300">
-                  <div className="mb-3 flex items-center gap-2">
-                    <div className="flex gap-0.5">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                  </div>
-                  <p className="text-sm font-semibold text-gray-900 mb-2">Dr. Priya Sharma</p>
-                  <p className="text-xs text-gray-600 leading-relaxed">
-                    The custom test feature is a game-changer! I can focus on my weak areas and track my progress.
-                    DocPrep helped me crack NEET PG with a great rank. Thank you!
-                  </p>
-                </div>
-              </div>
-
-              {/* Phone Mockup */}
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 animate-float animate-slide-up animate-delay-300">
-                <div className="relative h-[500px] w-[260px]">
-                  {/* Phone Frame */}
-                  <div className="absolute inset-0 rounded-[3rem] bg-gradient-to-br from-teal-400 to-teal-600 p-3 shadow-2xl">
-                    <div className="h-full w-full rounded-[2.5rem] bg-white overflow-hidden">
-                      {/* Phone Screen Content */}
-                      <div className="h-full flex flex-col">
-                        {/* Header */}
-                        <div className="bg-gradient-to-r from-teal-500 to-emerald-500 px-4 py-6 text-white">
-                          <div className="text-xs font-semibold mb-1">NEET PG Preparation</div>
-                          <div className="text-lg font-bold">10,000+ Questions</div>
-                        </div>
-
-                        {/* Question Card */}
-                        <div className="flex-1 p-4 bg-gray-50">
-                          <div className="bg-white rounded-xl p-4 shadow-sm h-full">
-                            <div className="text-xs text-gray-500 mb-3">Question 1/20</div>
-                            <p className="text-xs text-gray-800 mb-4 leading-relaxed">
-                              Most helpful novel mantle cell lymphoma marker in Cyclin D1 absence:
-                            </p>
-
-                            {/* Options */}
-                            <div className="space-y-2">
-                              <div className="border-2 border-teal-500 rounded-lg px-3 py-2 text-xs bg-teal-50">
-                                A. SOX11
-                              </div>
-                              <div className="border border-gray-200 rounded-lg px-3 py-2 text-xs">B. Annexin V</div>
-                              <div className="border border-gray-200 rounded-lg px-3 py-2 text-xs">C. MYD88</div>
-                              <div className="border border-gray-200 rounded-lg px-3 py-2 text-xs">D. ITRA 1</div>
-                            </div>
-
-                            {/* Navigation */}
-                            <div className="flex justify-between mt-6">
-                              <button className="text-xs text-gray-500 px-3 py-1.5 border border-gray-300 rounded-lg">
-                                Previous
-                              </button>
-                              <button className="text-xs text-white px-4 py-1.5 bg-blue-600 rounded-lg font-semibold">
-                                Next
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        
         </div>
       </div>
 

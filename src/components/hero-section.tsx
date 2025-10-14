@@ -11,8 +11,8 @@ export function HeroSection() {
   useEffect(() => {
     const calculateTimeLeft = () => {
       const now = new Date()
-      // Set target date to October 15th, 2025 at midnight
-      const targetDate = new Date('2025-10-15T00:00:00')
+      // Set target date to October 17th, 2025 at midnight
+      const targetDate = new Date('2025-10-17T00:00:00')
       
       const difference = targetDate.getTime() - now.getTime()
       

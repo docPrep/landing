@@ -1,97 +1,26 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-
 export function AnimatedBackground() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#2e3192] via-[#3D3D8F] to-[#2e3192] opacity-90" />
 
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
-
-    const resizeCanvas = () => {
-      const parent = canvas.parentElement
-      if (parent) {
-        canvas.width = parent.offsetWidth
-        canvas.height = parent.offsetHeight
-      }
-    }
-    resizeCanvas()
-    window.addEventListener("resize", resizeCanvas)
-
-    // Particle system
-    const particles: Array<{
-      x: number
-      y: number
-      vx: number
-      vy: number
-      radius: number
-      opacity: number
-    }> = []
-
-    // Create particles
-    const particleCount = 50
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        radius: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.5 + 0.2,
-      })
-    }
-
-    // Animation loop
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      // Update and draw particles
-      particles.forEach((particle, i) => {
-        particle.x += particle.vx
-        particle.y += particle.vy
-
-        // Wrap around edges
-        if (particle.x < 0) particle.x = canvas.width
-        if (particle.x > canvas.width) particle.x = 0
-        if (particle.y < 0) particle.y = canvas.height
-        if (particle.y > canvas.height) particle.y = 0
-
-        // Draw particle
-        ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(46, 49, 146, ${particle.opacity})`
-        ctx.fill()
-
-        // Draw connections
-        particles.slice(i + 1).forEach((otherParticle) => {
-          const dx = particle.x - otherParticle.x
-          const dy = particle.y - otherParticle.y
-          const distance = Math.sqrt(dx * dx + dy * dy)
-
-          if (distance < 150) {
-            ctx.beginPath()
-            ctx.moveTo(particle.x, particle.y)
-            ctx.lineTo(otherParticle.x, otherParticle.y)
-            ctx.strokeStyle = `rgba(46, 49, 146, ${0.15 * (1 - distance / 150)})`
-            ctx.lineWidth = 1
-            ctx.stroke()
-          }
-        })
-      })
-
-      requestAnimationFrame(animate)
-    }
-
-    animate()
-
-    return () => {
-      window.removeEventListener("resize", resizeCanvas)
-    }
-  }, [])
-
-  return <canvas ref={canvasRef} className="absolute inset-0 h-full w-full pointer-events-none" />
+      {/* Animated particles/stars effect */}
+      <div className="absolute inset-0">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-white/30 rounded-full animate-pulse"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 3}s`,
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  )
 }

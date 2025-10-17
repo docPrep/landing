@@ -1,6 +1,4 @@
 "use client"
-
-import { Timer } from "lucide-react"
 import Image from "next/image"
 import { AnimatedBackground } from "./ui/animated-background"
 import { useState, useEffect } from "react"
@@ -11,11 +9,17 @@ export function HeroSection() {
   useEffect(() => {
     const calculateTimeLeft = () => {
       const now = new Date()
-      // Set target date to October 15th, 2025 at midnight
-      const targetDate = new Date('2025-10-15T00:00:00')
-      
+      const target = new Date(now)
+      const currentDay = now.getDate()
+      if (currentDay > 20) {
+        target.setMonth(target.getMonth() + 1)
+      }
+      target.setDate(20)
+      target.setHours(0, 0, 0, 0)
+      const targetDate = target
+
       const difference = targetDate.getTime() - now.getTime()
-      
+
       if (difference > 0) {
         setTimeLeft({
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -33,19 +37,89 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative min-h-screen h-auto overflow-hidden bg-white">
+    <section className="relative min-h-screen h-auto overflow-hidden bg-gradient-to-br from-[#2e3192] via-[#3D3D8F] to-[#2e3192]">
       <AnimatedBackground />
 
-      {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
-        <div className="absolute top-1/2 -left-40 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
-        <div className="absolute top-1/4 right-1/4 h-64 w-64 rounded-full bg-orange-500/10 blur-3xl" />
+        <div className="absolute top-20 right-20 h-80 w-80 rounded-full bg-[#FF6B4A]/30 blur-3xl animate-pulse" />
+        <div
+          className="absolute top-1/2 left-20 h-80 w-80 rounded-full bg-orange-500/30 blur-3xl animate-pulse"
+          style={{ animationDelay: "1s" }}
+        />
+        <div
+          className="absolute top-1/4 right-1/3 h-64 w-64 rounded-full bg-yellow-400/30 blur-3xl animate-pulse"
+          style={{ animationDelay: "2s" }}
+        />
+        <div
+          className="absolute bottom-20 left-1/4 h-72 w-72 rounded-full bg-[#FF6B4A]/30 blur-3xl animate-pulse"
+          style={{ animationDelay: "1.5s" }}
+        />
+      </div>
+
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Top row - 3 Diyas with even spacing */}
+        <div className="absolute top-16 left-1/4 -translate-x-1/2 animate-float md:block hidden" style={{ animationDelay: "0s" }}>
+          <div className="relative group cursor-pointer pointer-events-auto">
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/40 via-yellow-500/40 to-orange-500/40 blur-xl rounded-full scale-150 group-hover:scale-[2.2] transition-transform duration-500" />
+            <Image
+              src="/diya.png"
+              alt="Ornate Diya lamp"
+              width={80}
+              height={80}
+              className="relative drop-shadow-2xl group-hover:scale-125 group-hover:rotate-12 transition-all duration-500"
+            />
+          </div>
+        </div>
+
+       
+
+        <div className="absolute top-16 left-3/4 -translate-x-1/2 animate-float  md:block hidden" style={{ animationDelay: "1s" }}>
+          <div className="relative group cursor-pointer pointer-events-auto">
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-400/40 via-yellow-500/40 to-orange-400/40 blur-xl rounded-full scale-150 group-hover:scale-[2.2] transition-transform duration-500" />
+            <Image
+              src="/diya.png"
+              alt="Ornate Diya lamp"
+              width={80}
+              height={80}
+              className="relative drop-shadow-2xl group-hover:scale-125 group-hover:rotate-6 transition-all duration-500"
+            />
+          </div>
+        </div>
+
+   
+        <div className="absolute top-1/2 -translate-y-1/2 left-12 animate-float  md:block hidden" style={{ animationDelay: "1.5s" }}>
+          <div className="relative group cursor-pointer pointer-events-auto">
+            <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/40 via-orange-500/40 to-yellow-400/40 blur-xl rounded-full scale-150 group-hover:scale-[2.2] transition-transform duration-500" />
+            <Image
+              src="/diya.png"
+              alt="Ornate Diya lamp"
+              width={90}
+              height={90}
+              className="relative drop-shadow-2xl group-hover:scale-125 group-hover:-rotate-6 transition-all duration-500"
+            />
+          </div>
+        </div>
+
+        <div className="absolute top-1/2 -translate-y-1/2 right-12 animate-float  md:block hidden" style={{ animationDelay: "2s" }}>
+          <div className="relative group cursor-pointer pointer-events-auto">
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/40 via-yellow-400/40 to-orange-500/40 blur-xl rounded-full scale-150 group-hover:scale-[2.2] transition-transform duration-500" />
+            <Image
+              src="/diya.png"
+              alt="Ornate Diya lamp"
+              width={90}
+              height={90}
+              className="relative drop-shadow-2xl group-hover:scale-125 group-hover:rotate-12 transition-all duration-500"
+            />
+          </div>
+        </div>
+
+      
+  
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 py-2 sm:px-6 lg:px-8 lg:py-4">
         <div className="flex justify-center mb-8 animate-slide-up">
-          <div className="flex items-center  rounded-xl w-auto mt-4">
+          <div className="flex items-center rounded-xl w-auto mt-4 bg-white/10 backdrop-blur-sm px-6 py-3 shadow-2xl">
             <Image
               src="/logo.png"
               alt="DocPrep Logo"
@@ -58,133 +132,80 @@ export function HeroSection() {
           </div>
         </div>
 
-
         <div className="flex flex-col items-center justify-center mb-5">
-          {/* Left Content */}
-          <div className="space-y-6 sm:space-y-8 text-center ">
-            <div className="space-y-4 sm:space-y-6 animate-slide-up-large animate-delay-100">
-              <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#2e3192] text-balance">
-              <span className="whitespace-nowrap">Ace NEET PG with</span><br/><span className="whitespace-nowrap text-2xl sm:text-6xl">India’s #1 Question Bank</span>
-              </h1>
-              <p className="text-sm whitespace-nowrap font-bold sm:text-lg md:text-xl text-[#f15a29] leading-relaxed text-pretty">
-              Practice with Purpose
-              Perform with Precision
-              </p>
+          <div className="space-y-6 sm:space-y-8 text-center">
+          <div className="space-y-4 sm:space-y-6 animate-slide-up-large animate-delay-100 text-center px-4">
+  <h1 className="font-sans text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white drop-shadow-2xl break-words">
+    <span className="block">🪔 Festive Launch 🪔</span>
+    <span className="block text-xl sm:text-2xl md:text-3xl text-orange-200 mt-2">
+      Website goes live on the{" "}
+    </span>
+    <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl bg-gradient-to-r from-orange-300 via-yellow-200 to-orange-300 bg-clip-text text-transparent animate-pulse font-extrabold drop-shadow-2xl mt-2">
+      20th
+    </span>
+  </h1>
+  <p className="text-sm sm:text-sm md:text-lg font-bold text-orange-300 leading-relaxed drop-shadow-lg text-center">
+  ✨ Celebrate with Diya lights 
+  <br className="block md:hidden" /> 
+  and be the first to explore ✨
+</p>
+</div>
+
+
+            <div className="flex justify-center gap-4 sm:gap-6 animate-slide-up animate-delay-150">
+              {[
+                { label: "Days", value: timeLeft.days },
+                { label: "Hours", value: timeLeft.hours },
+                { label: "Minutes", value: timeLeft.minutes },
+                { label: "Seconds", value: timeLeft.seconds },
+              ].map((item, index) => (
+                <div
+                  key={item.label}
+                  className="flex flex-col items-center bg-white/10 backdrop-blur-md rounded-2xl px-4 py-3 sm:px-6 sm:py-4 shadow-2xl border border-orange-400/30 hover:scale-110 hover:bg-white/20 transition-all duration-300"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-orange-300 drop-shadow-lg">
+                    {item.value.toString().padStart(2, "0")}
+                  </span>
+                  <span className="text-xs sm:text-sm text-white/80 mt-1 font-medium">{item.label}</span>
+                </div>
+              ))}
             </div>
 
-            <div className="flex flex-wrap gap-2 sm:gap-3 justify-center  animate-slide-up animate-delay-200">
+            <div className="flex justify-center gap-8 sm:gap-12 md:gap-16 my-10 animate-slide-up animate-delay-175">
+              {[1, 2, 3, 4].map((i) => (
+                <div
+                  key={i}
+                  className="relative group animate-float cursor-pointer"
+                  style={{ animationDelay: `${i * 0.3}s` }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500/50 via-yellow-500/50 to-orange-500/50 blur-2xl rounded-full scale-150 group-hover:scale-[3.5] transition-transform duration-700" />
+                  <Image
+                    src="/diya.png"
+                    alt="Ornate Diya lamp"
+                    width={85}
+                    height={85}
+                    className="relative drop-shadow-2xl group-hover:scale-150 group-hover:rotate-[360deg] transition-all duration-700 cursor-pointer"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-2 sm:gap-3 justify-center animate-slide-up animate-delay-200">
               {["MBBS Curriculum", "FMGE", "NEET PG", "NEET SS", "PG Residency"].map((category) => (
                 <button
                   key={category}
-                  className="rounded-full border-2  px-3 py-2  bg-gradient-to-r from-blue-800 via-blue-600 to-blue-800 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-medium text-white backdrop-blur-sm hover:bg-white hover:text-[#3D3D8F] hover:border-white hover:shadow-lg hover:scale-105 transition-all duration-300"
+                  className="rounded-full border-2 border-orange-400/50 px-3 py-2 bg-gradient-to-r from-orange-500 via-yellow-500 to-orange-500 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-medium text-white backdrop-blur-sm hover:bg-white hover:text-[#3D3D8F] hover:border-white hover:shadow-2xl hover:shadow-orange-500/50 hover:scale-105 transition-all duration-300"
                 >
                   {category}
                 </button>
               ))}
             </div>
-
-            {/* Coming Soon Badge */}
-            <div className="flex flex-col items-center gap-6 animate-slide-up animate-delay-300 sm:mb-20">
-              
-              
-              {/* Countdown Timer */}
-              <div className="relative">
-                {/* Decorative background glow */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#3D3D8F]/20 via-[#FF6B4A]/20 to-[#3D3D8F]/20 blur-2xl rounded-3xl" />
-                
-                <div className="relative flex flex-col items-center gap-3 sm:gap-4 mb-2 animate-slide-up animate-delay-400 ">
-                  <div className="flex items-center gap-2 mb-4 bg-orange-600 text-white px-4 py-2 rounded-full shadow-lg">
-                    <Timer className="w-6 h-6 sm:w-8 sm:h-8 animate-pulse" />
-                    <span className="text-sm text-white sm:text-base font-bold">Launching In</span>
-                  </div>
-                  
-                  <div className="flex gap-2 sm:gap-3 md:gap-4">
-                    {/* Days */}
-                    <div className="relative group">
-                      <div className="absolute -inset-0.5 bg-gradient-to-br from-[#3D3D8F] to-[#5B5BC7] rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
-                      <div className="relative flex flex-col items-center bg-white rounded-xl px-3 py-2 sm:px-4 sm:py-3 md:px-5 md:py-4 shadow-xl">
-                        <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-br from-[#3D3D8F] to-[#5B5BC7] bg-clip-text text-transparent">
-                          {String(timeLeft.days).padStart(2, '0')}
-                        </span>
-                        <span className="text-[10px] sm:text-xs md:text-sm text-[#3D3D8F] font-semibold uppercase tracking-wider mt-1">Days</span>
-                      </div>
-                    </div>
-
-                    {/* Separator */}
-                    <div className="flex items-center">
-                      <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#FF6B4A] animate-pulse">:</span>
-                    </div>
-
-                    {/* Hours */}
-                    <div className="relative group">
-                      <div className="absolute -inset-0.5 bg-gradient-to-br from-[#3D3D8F] to-[#5B5BC7] rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
-                      <div className="relative flex flex-col items-center bg-white rounded-xl px-3 py-2 sm:px-4 sm:py-3 md:px-5 md:py-4 shadow-xl">
-                        <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-br from-[#3D3D8F] to-[#5B5BC7] bg-clip-text text-transparent">
-                          {String(timeLeft.hours).padStart(2, '0')}
-                        </span>
-                        <span className="text-[10px] sm:text-xs md:text-sm text-[#3D3D8F] font-semibold uppercase tracking-wider mt-1">Hours</span>
-                      </div>
-                    </div>
-
-                    {/* Separator */}
-                    <div className="flex items-center">
-                      <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#FF6B4A] animate-pulse">:</span>
-                    </div>
-
-                    {/* Minutes */}
-                    <div className="relative group">
-                      <div className="absolute -inset-0.5 bg-gradient-to-br from-[#FF6B4A] to-[#FF8566] rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
-                      <div className="relative flex flex-col items-center bg-white rounded-xl px-3 py-2 sm:px-4 sm:py-3 md:px-5 md:py-4 shadow-xl">
-                        <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-br from-[#FF6B4A] to-[#FF8566] bg-clip-text text-transparent">
-                          {String(timeLeft.minutes).padStart(2, '0')}
-                        </span>
-                        <span className="text-[10px] sm:text-xs md:text-sm text-[#FF6B4A] font-semibold uppercase tracking-wider mt-1">Mins</span>
-                      </div>
-                    </div>
-
-                    {/* Separator */}
-                    <div className="flex items-center">
-                      <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#3D3D8F] animate-pulse">:</span>
-                    </div>
-
-                    {/* Seconds */}
-                    <div className="relative group">
-                      <div className="absolute -inset-0.5 bg-gradient-to-br from-[#FF6B4A] to-[#FF8566] rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300 animate-pulse"></div>
-                      <div className="relative flex flex-col items-center bg-white rounded-xl px-3 py-2 sm:px-4 sm:py-3 md:px-5 md:py-4 shadow-xl">
-                        <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-br from-[#FF6B4A] to-[#FF8566] bg-clip-text text-transparent">
-                          {String(timeLeft.seconds).padStart(2, '0')}
-                        </span>
-                        <span className="text-[10px] sm:text-xs md:text-sm text-[#FF6B4A] font-semibold uppercase tracking-wider mt-1">Secs</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-         
-            </div>
-
-
           </div>
-
-
         </div>
       </div>
 
-      {/* Wave Bottom Border */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-          <path
-            d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-            fill="white"
-          />
-          <path
-            d="M0 120L60 112.5C120 105 240 90 360 82.5C480 75 600 75 720 78.75C840 82.5 960 90 1080 93.75C1200 97.5 1320 97.5 1380 97.5L1440 97.5V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-            fill="#E0F7FA"
-            fillOpacity="0.5"
-          />
-        </svg>
-      </div>
+    
     </section>
   )
 }

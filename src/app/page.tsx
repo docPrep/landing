@@ -3,7 +3,7 @@
 import { Sparkles } from "lucide-react";
 
 export default function Home() {
-  const REDIRECT_URL = "https://www.docprep.in";
+  const REDIRECT_URL = "https://www.docprep.in/auth";
 
   const handleButtonClick = () => {
     window.location.href = REDIRECT_URL;
